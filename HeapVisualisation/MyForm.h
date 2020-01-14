@@ -34,11 +34,14 @@ namespace HeapVisualisation {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ TestLabel;
+
 	private: System::Windows::Forms::Button^ InsertButton;
 	private: System::Windows::Forms::Button^ DeleteButton;
 	private: System::Windows::Forms::TextBox^ InsertTextBox;
 	private: System::Windows::Forms::TextBox^ DeleteTextBox;
+
+
+
 	protected:
 
 	private:
@@ -54,20 +57,11 @@ namespace HeapVisualisation {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->TestLabel = (gcnew System::Windows::Forms::Label());
 			this->InsertButton = (gcnew System::Windows::Forms::Button());
 			this->DeleteButton = (gcnew System::Windows::Forms::Button());
 			this->InsertTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->DeleteTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
-			// 
-			// TestLabel
-			// 
-			this->TestLabel->AutoSize = true;
-			this->TestLabel->Location = System::Drawing::Point(651, 13);
-			this->TestLabel->Name = L"TestLabel";
-			this->TestLabel->Size = System::Drawing::Size(0, 13);
-			this->TestLabel->TabIndex = 0;
 			// 
 			// InsertButton
 			// 
@@ -120,7 +114,6 @@ namespace HeapVisualisation {
 			this->Controls->Add(this->InsertTextBox);
 			this->Controls->Add(this->DeleteButton);
 			this->Controls->Add(this->InsertButton);
-			this->Controls->Add(this->TestLabel);
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"MyForm";
@@ -132,13 +125,14 @@ namespace HeapVisualisation {
 		}
 #pragma endregion
 	private: System::Void InsertButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ InputTest = InsertTextBox->Text;
-		TestLabel->Text = "Value " + InsertTextBox->Text + " was inserted";
+		String^ test = InsertTextBox->Text;
+		int i = int::Parse(test);
+		//TestLabel->Text = "Value " + i.ToString() + " was inserted";
 	}
 
 
 	private: System::Void DeleteButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		TestLabel->Text = "Value " + DeleteTextBox->Text + " was deleted";
+		//TestLabel->Text = "Value " + DeleteTextBox->Text + " was deleted";
 	}
 
 

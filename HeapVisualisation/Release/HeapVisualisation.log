@@ -1,2 +1,3 @@
-﻿  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+﻿  MyForm.cpp
+  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   HeapVisualisation.vcxproj -> C:\Users\miuta\Source\Repos\HeapVisualisation\Release\HeapVisualisation.exe
