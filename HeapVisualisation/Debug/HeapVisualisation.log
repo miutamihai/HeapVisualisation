@@ -1,3 +1,1 @@
-﻿  MyForm.cpp
-  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  HeapVisualisation.vcxproj -> C:\Users\miuta\Source\Repos\HeapVisualisation\Debug\HeapVisualisation.exe
+﻿LINK : fatal error LNK1104: cannot open file 'C:\Users\miuta\Source\Repos\HeapVisualisation\Debug\HeapVisualisation.exe'
