@@ -1,0 +1,4 @@
+﻿  MyForm.cpp
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  HeapVisualisation.vcxproj -> C:\Users\miuta\Source\Repos\HeapVisualisation\Debug\HeapVisualisation.exe
