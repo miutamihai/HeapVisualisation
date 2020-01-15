@@ -1,1 +1,2 @@
-﻿LINK : fatal error LNK1104: cannot open file 'C:\Users\miuta\Source\Repos\HeapVisualisation\Debug\HeapVisualisation.exe'
+﻿  MyForm.cpp
+LINK : fatal error LNK1104: cannot open file 'C:\Users\miuta\Source\Repos\HeapVisualisation\Debug\HeapVisualisation.exe'

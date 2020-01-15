@@ -1,5 +1,7 @@
 #pragma once
 #include "Node.h"
+#include "Heap.h"
+#include "Static.h"
 
 namespace HeapVisualisation {
 
@@ -10,6 +12,8 @@ namespace HeapVisualisation {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	//MinHeap heap(64);
+	Static::PositionArray* positionArray = new Static::PositionArray();
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
@@ -152,21 +156,28 @@ namespace HeapVisualisation {
 		}
 #pragma endregion
 	private: System::Void InsertButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ text = InsertTextBox->Text;
-		int i = int::Parse(text);
-		System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-		Node^ node = gcnew Node(System::Drawing::Point(545, 13), resources, i.ToString());
-		this->Controls->Add(node->NodeBox);
-		this->Controls->Add(node->NodeKey);
-		node->NodeKey->BringToFront();
+		if (InsertTextBox->Text != "" && InsertTextBox->Text != "Enter value to insert") {
+			positionArray->numberOfElements++;
+			String^ text = InsertTextBox->Text;
+			int i = int::Parse(text);
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			Node^ node = gcnew Node(System::Drawing::Point(positionArray->positions[positionArray->numberOfElements].x,
+				positionArray->positions[positionArray->numberOfElements].y), resources, i.ToString());
+			//Node^ node = gcnew Node(System::Drawing::Point(545, 15), resources, i.ToString());
+			this->Controls->Add(node->NodeBox);
+			this->Controls->Add(node->NodeKey);
+			node->NodeKey->BringToFront();
+		}
 	}
 
 
 	private: System::Void DeleteButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ text = DeleteTextBox->Text;
-		int i = int::Parse(text);
-		this->Controls->RemoveByKey(i.ToString() + "box");
-		this->Controls->RemoveByKey(i.ToString() + "key");
+		if (DeleteTextBox->Text != "" && DeleteTextBox->Text != "Enter value to delete") {
+			String^ text = DeleteTextBox->Text;
+			int i = int::Parse(text);
+			this->Controls->RemoveByKey(i.ToString() + "box");
+			this->Controls->RemoveByKey(i.ToString() + "key");
+		}
 	}
 
 
