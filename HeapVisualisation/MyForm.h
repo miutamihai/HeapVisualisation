@@ -1,4 +1,5 @@
 #pragma once
+#include "Node.h"
 
 namespace HeapVisualisation {
 
@@ -48,7 +49,7 @@ namespace HeapVisualisation {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -151,21 +152,21 @@ namespace HeapVisualisation {
 		}
 #pragma endregion
 	private: System::Void InsertButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		Node0->Visible = true;
+		String^ text = InsertTextBox->Text;
+		int i = int::Parse(text);
 		System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-		PictureBox^ Node1 = gcnew PictureBox();
-		Node1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Node0.Image")));
-		Node1->Location = System::Drawing::Point(500, 100);
-		Node1->Name = L"Node1";
-		Node1->Size = System::Drawing::Size(60, 71);
-		Node1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-		Node1->TabIndex = 5;
-		this->Controls->Add(Node1);
+		Node^ node = gcnew Node(System::Drawing::Point(545, 13), resources, i.ToString());
+		this->Controls->Add(node->NodeBox);
+		this->Controls->Add(node->NodeKey);
+		node->NodeKey->BringToFront();
 	}
 
 
 	private: System::Void DeleteButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		TestLabel->Text = "Value " + DeleteTextBox->Text + " was deleted";
+		String^ text = DeleteTextBox->Text;
+		int i = int::Parse(text);
+		this->Controls->RemoveByKey(i.ToString() + "box");
+		this->Controls->RemoveByKey(i.ToString() + "key");
 	}
 
 
